@@ -23,10 +23,10 @@ body {
   color: #fff;
 }
 
-.alink:hover {
+/* .alink:hover {
   border: 1px solid gray;
   background-color: white;
-}
+} */
 
 #navbar ul {
   padding: 0;
