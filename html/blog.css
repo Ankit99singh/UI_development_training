@@ -1,0 +1,26 @@
+body {
+  background-image: url(https://m.media-amazon.com/images/I/81nD7sQRawL._SL1500_.jpg);
+  background-size: 100% 650px;
+}
+
+.heading {
+  text-align: center;
+  color: darkred;
+}
+
+.b1 {
+  width: 312px;
+  height: 500px;
+  float: left;
+}
+
+.b2 {
+  width: 310px;
+  height: 500px;
+  float: right;
+}
+
+h2 {
+  text-align: center;
+  color: darkred;
+}
