@@ -5,6 +5,7 @@ import './forecast.scss'
 class Forecast extends React.Component {
   render() {
     const items = this.props.forecast.map((f, i) => {
+      if(i<25){
       const image = {
         url: `http://openweathermap.org/img/wn/${f.weather[0].icon}@2x.png`,
         alt: `Image of  ${f.weather[0].description}`,
@@ -29,23 +30,25 @@ class Forecast extends React.Component {
           <p className="forecast-item__description">{description}</p>
         </div>
       );
+     }
     });
 
-    const myitems = this.props.dailyForecast.map(({weather,temp,dt})=>{
+    const myitems = this.props.dailyForecast.map((f,i)=>{
+      if(i>0 &&i<=7){
       const myimage={
-        url: `http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`,
-        alt: `Image of  ${weather[0].description}`,
+        url: `http://openweathermap.org/img/wn/${f.weather[0].icon}@2x.png`,
+        alt: `Image of  ${f.weather[0].description}`,
       };
-      const description =weather[0].description;
+      const description =f.weather[0].description;
 
-      var Day=new Date(dt*1000).toLocaleDateString("en",{weekday:"long"});
+      var Day=new Date(f.dt*1000).toLocaleDateString("en",{weekday:"long"});
     
 
     return (
       <div className="forecast-item">
         <p className="forecast-item__time">{Day}</p>
-        <p> Min {temp.min}°C</p>
-        <p className="forecast-item__time">Max {temp.max}<span className="forecast-item__degree">°C</span></p>
+        <p> Min {f.temp.min}°C</p>
+        <p className="forecast-item__time">Max {f.temp.max}<span className="forecast-item__degree">°C</span></p>
         <img
         className="forecast-item__img"
         src={myimage.url}
@@ -54,6 +57,7 @@ class Forecast extends React.Component {
         <p className="forecast-item_description">{description}</p>
       </div>
     );
+   }
   });
   
   return(
